@@ -11,13 +11,12 @@ Passo 2: Crie um modelo, um controlador e uma rota
 Vamos criar um modelo chamado "Item" que representará dados fictícios. 
 Em seguida, criaremos um controlador chamado "ItemController" para gerenciar esses dados e definiremos uma rota para exibir os dados na view.
 Execute esses comandos no Terminal:
+
 php artisan make:model Item
 php artisan make:controller ItemController
 
 Em seguida, abra o arquivo "app/Models/Item.php" e adicione o seguinte código para definir o modelo:
-"
-php
-Copy code
+
 // app/Models/Item.php
 
 namespace App\Models;
@@ -31,11 +30,11 @@ class Item extends Model
 
     protected $fillable = ['name', 'description'];
 }
-"
+
 
 Agora, abra o arquivo "app/Http/Controllers/ItemController.php" e adicione o seguinte código para o controlador:
 
-"
+
 // app/Http/Controllers/ItemController.php
 
 namespace App\Http\Controllers;
@@ -52,7 +51,7 @@ class ItemController extends Controller
         return view('items.index', compact('items'));
     }
 }
-"
+
 
 Passo 3: Crie uma view
 Vamos criar uma view para exibir os itens. Execute o seguinte comando para criar um arquivo de view:
@@ -61,7 +60,7 @@ php artisan make:view items.index
 
 Abra o arquivo "resources/views/items/index.blade.php" e adicione o seguinte código para exibir os dados dos itens usando Blade:
 
-"
+
 <!-- resources/views/items/index.blade.php -->
 
 @extends('layouts.app')
@@ -79,18 +78,18 @@ Abra o arquivo "resources/views/items/index.blade.php" e adicione o seguinte có
         <p>Nenhum item encontrado.</p>
     @endif
 @endsection
-"
+
 
 Passo 4: Crie uma rota
 Abra o arquivo "routes/web.php" e adicione a seguinte rota para acessar a view dos itens:
 
-"
+
 // routes/web.php
 
 use App\Http\Controllers\ItemController;
 
 Route::get('/items', [ItemController::class, 'index']);
-"
+
 
 Passo 5: Execute o servidor de desenvolvimento
 Agora, você pode iniciar o servidor de desenvolvimento Laravel com o seguinte comando:
@@ -109,10 +108,10 @@ Componentes: Os componentes no Blade permitem encapsular partes reutilizáveis d
 
 Apelidando componentes: Os componentes podem ser apelidados para facilitar sua inclusão. Você pode atribuir um alias ao componente usando a diretiva @component. Por exemplo:
 
-"
+
 @component('components.alert', ['type' => 'success'])
     Esta é uma mensagem de sucesso.
 @endcomponent
-"
+
 
 Comentários: Você pode adicionar comentários ao seu código Blade usando a diretiva {{-- comentário --}}. Isso é útil para documentar seu código ou explicar partes específicas da view.
